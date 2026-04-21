@@ -5,44 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Presentación</title>
     <style>
+        /* Reset total de márgenes */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body, html { 
             height: 100%; 
             width: 100%;
             overflow: hidden; 
-            background-color: #0e1217; /* Fondo oscuro de Canva */
-        }
-
-        /* Contenedor que centra el PDF y le da el look de diapositiva */
-        .presentation-frame {
-            width: 100vw;
-            height: 100vh;
+            background-color: #0e1217; /* Fondo oscuro tipo Canva */
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
+        /* Contenedor de la presentación */
+        .canvas-wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Iframe maximizado */
         iframe { 
+            flex-grow: 1;
             width: 100%; 
             height: 100%; 
             border: none;
-            /* Suaviza la carga */
-            background-color: #0e1217;
+            background-color: #ffffff;
+        }
+
+        /* Barra de herramientas simulada (opcional, para dar el "look") */
+        .top-bar {
+            height: 40px;
+            background: #1a1f26;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            color: #a7acb1;
+            font-size: 14px;
+            font-family: sans-serif;
+            border-bottom: 1px solid #2d343d;
         }
     </style>
 </head>
 <body>
 
-    <div class="presentation-frame">
+    <div class="canvas-wrapper">
+        <div class="top-bar">Presentación: Asig2</div>
+        
         <iframe 
-            src="asig2.pdf#toolbar=0&navpanes=0&scrollbar=0&view=Fit" 
+            src="asig2.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH" 
             allow="fullscreen">
         </iframe>
     </div>
 
     <script>
-        // Doble clic para Pantalla Completa (Ideal para proyectar en la facultad)
+        // Truco opcional: Si haces doble clic, se pone en pantalla completa
         document.addEventListener('dblclick', function() {
             if (!document.fullscreenElement) {
                 document.documentElement.requestFullscreen();
